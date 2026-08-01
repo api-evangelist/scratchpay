@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/scratchpay-scratchpay-1.0.0-apis-swagger.yml, openapi/scratchpay-scratchpay-care-credit-1.0.0-apis-swagger.yml
+format: custom-validation-envelope
+notes: >
+  The API does not use RFC 9457 application/problem+json. Validation failures return
+  HTTP 422 with a JSON object mapping each invalid field name to an array of
+  human-readable error message strings.
+envelope:
+  content_type: application/json
+  shape: '{ "<fieldName>": ["<message>", ...] }'
+problems:
+  - status: 422
+    title: Unprocessable Entity - validation failed
+    description: One or more request-body fields are invalid or missing.
+    content_type: application/json
+    example:
+      requestedAmount: ["The requested amount may not be greater than 10000."]
+      phoneNumber: ["The phone number format is invalid."]
+      loanUniqueId: ["The loan unique id field is required."]
+    source_operations:
+      - openapi/scratchpay-scratchpay-1.0.0-apis-swagger.yml#POST /application
+      - openapi/scratchpay-scratchpay-care-credit-1.0.0-apis-swagger.yml#POST /application

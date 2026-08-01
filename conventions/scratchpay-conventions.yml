@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/scratchpay-scratchpay-1.0.0-apis-swagger.yml, openapi/scratchpay-partner-1.0.0-apis-swagger.yml
+authentication:
+  style: bearer-token
+  header: Authorization
+  format: 'Bearer <integration-token>'
+  ref: authentication/scratchpay-authentication.yml
+idempotency:
+  supported: false
+  note: >
+    No documented Idempotency-Key contract. Partners MAY supply a loanUniqueId on
+    POST /application as a correlation identifier so Scratchpay can reference the
+    application on the result callback, but the docs do not describe it as an
+    idempotency key or guarantee replay-safety, so no Idempotency pointer is emitted.
+pagination:
+  supported: false
+  note: The published surface has no list/collection endpoints.
+versioning:
+  scheme: none-documented
+  spec_version: 1.0.0
+error_envelope:
+  content_type: application/json
+  format: field-keyed message arrays (HTTP 422)
+  ref: errors/scratchpay-problem-types.yml
+callbacks:
+  supported: true
+  note: >
+    Asynchronous loan decision is delivered by Scratchpay POSTing to the partner's
+    own endpoint (Partner-API POST /application/{loanUniqueId}/result).
+  ref: asyncapi/scratchpay-partner-webhooks.yml
+rate_limiting:
+  signaled: unknown
+  note: No rate-limit headers or policy documented in the published specs.

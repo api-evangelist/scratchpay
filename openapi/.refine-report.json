@@ -1,0 +1,16 @@
+{
+  "provider": "scratchpay",
+  "sources": [
+    "scratchpay-borrower-application-api-openapi.yml",
+    "scratchpay-borrower-application-result-api-openapi.yml"
+  ],
+  "outputs": [
+    "scratchpay-borrower-application-api-openapi.yml",
+    "scratchpay-borrower-application-result-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

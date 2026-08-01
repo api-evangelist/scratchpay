@@ -1,0 +1,19 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Scratchpay Care Credit API
+  version: 1.0.0
+extends: openapi/scratchpay-scratchpay-care-credit-1.0.0-apis-swagger.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: true
+      x-provenance: github.com/scratchpay/Scratchpay-API (archived 2026-06-26)
+  - target: $.components.securitySchemes
+    update:
+      partnerBearerToken:
+        type: http
+        scheme: bearer
+        description: 'Integration token sent as Authorization: Bearer <token>.'
+  - target: $.paths['/application'].post
+    update:
+      operationId: createCareCreditApplication

@@ -1,0 +1,134 @@
+openapi: 3.0.0
+info:
+  description: |
+    API Documentation for `Scratchpay-API`
+  version: 1.0.0
+  title: Scratchpay-API
+  contact:
+    email: tech@scratchpay.com
+
+servers:
+  - url: https://staging.scratchpay.com/api
+    description: staging
+  - url: https://scratchpay.com/api
+    description: production  
+schemes:
+ - https
+
+paths:
+  /application:
+    post:
+      tags: 
+      - Borrower application
+      summary: Send borrower loan application data
+      description: Will require some data for the borrower loan application and will send back a specific url that the borrower should be redirected to for mobile phone verification page
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+            example: "Bearer 20c864a867e1563d298e316af9a50ee3"
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phoneNumber:
+                  type: string
+                  example: 18557272395
+                  description: Borrower phone number
+                  required: true
+                practiceUniqueId:
+                  type: string
+                  example: cb8306268cbe4d289dbf1e5a2ec0c484
+                  description: A unique ID for the practice
+                  required: true
+                requestedAmount:
+                  type: integer
+                  example: 500
+                  description: Borrower loan requested amount in USD
+                  required: true
+                loanUniqueId:
+                  type: string
+                  example: 46bf3c423264c47dd0bb7f2626641181
+                  description: Unique alpha numeric string that the partner can use to identify the loan application when we call their API back to send the result
+                successURL:
+                  type: string
+                  example: https://www.google.com
+                  required: true
+                declineURL:
+                  type: string
+                  example: https://www.google.com
+                  required: true
+                firstName:
+                  type: string
+                  example: Jonathan
+                  required: false
+                lastName:
+                  type: string
+                  example: Consumer
+                  required: false
+                address1:
+                  type: string
+                  example: Canal Street
+                  required: false
+                address2:
+                  type: string
+                  example: Youngtown
+                  required: false
+                postalCode:
+                  type: string
+                  example: 10598
+                  required: false
+                city:
+                  type: string
+                  example: New York
+                  required: false
+                state:
+                  type: string
+                  example: NY
+                  required: false
+                email:
+                  type: string
+                  example: jc@example.com
+                  required: false
+                birthDate:
+                  type: string
+                  example: "1973-12-23"
+                  required: false
+                yearlyIncomeAmount:
+                  type: integer
+                  example: 70000
+                  required: false
+                country:
+                  type: string
+                  example: US
+                  required: false
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              example:
+                url: "https://scratchpay.com/verify/18557272395/40"
+
+        422:
+          description: Unable to process the request. One or more fields are invalid or missing.
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  phoneNumber:
+                    type: array
+                example: { 
+                  "requestedAmount": [ "The requested amount may not be greater than 10000." ],
+                  "phoneNumber": [ "The phone number format is invalid."],
+                  "loanUniqueId": ["The loan unique id field is required."]
+                  }
+                                                         
+externalDocs:
+  description: Find out more about Scratchpay
+  url: https://scratchpay.com

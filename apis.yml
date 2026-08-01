@@ -1,22 +1,74 @@
 aid: scratchpay
 name: Scratchpay
-description: 'Scratchpay is a company surfaced as a portfolio company of norwest-venture-partners and
-  added to the API Evangelist network as a stub for enrichment. Sector: unknown. This profile is a lead
-  awaiting the enrichment pipeline.'
+description: >-
+  Scratchpay (Scratch Financial, Inc., NMLS ID 1582666) is a digital payment and
+  financing platform for veterinary and human healthcare. Practices offer borrowers
+  Scratch Pay installment plans ($200-$10,000 over 12-24 months, 0-36% APR) with no
+  hidden fees and a soft credit check, plus Scratch Checkout payment processing and
+  Scratch Comms patient communications. Over 12,000 veterinary hospitals across the
+  U.S. and Canada integrate Scratch, which pays practices up front and collects from
+  borrowers. Scratchpay exposes a partner/borrower API (published as archived OpenAPI
+  on GitHub) for submitting loan applications and receiving an asynchronous
+  approve/decline decision via a partner callback. Backed by Norwest Venture Partners.
 url: https://raw.githubusercontent.com/api-evangelist/scratchpay/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://6598889.fs1.hubspotusercontent-na1.net/hubfs/6598889/New%20Site%202025/newsite.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - norwest-venture-partners
-x-tier: stub
+x-tier: enriched
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-- Unknown
-apis: []
+- Financing
+- Payments
+- Lending
+- Veterinary
+- Healthcare
+- Fintech
+- Buy Now Pay Later
+- Point of Sale
+apis:
+- aid: scratchpay:scratchpay-borrower-application-api
+  name: Scratchpay Borrower application API
+  description: The Borrower application API from Scratchpay — 1 operation(s) for borrower application.
+  humanURL: https://github.com/scratchpay/Scratchpay-API
+  baseURL: https://scratchpay.com/api
+  tags:
+  - Borrower application
+  properties:
+  - type: OpenAPI
+    url: openapi/scratchpay-borrower-application-api-openapi.yml
+  - type: Staging
+    url: https://staging.scratchpay.com/api
+- aid: scratchpay:scratchpay-borrower-application-result-api
+  name: Scratchpay Borrower application result API
+  description: >-
+    The Borrower application result API from Scratchpay — 1 operation(s) for borrower application result.
+  humanURL: https://github.com/scratchpay/Scratchpay-API
+  baseURL: https://scratchpay.com/api
+  tags:
+  - Borrower application result
+  properties:
+  - type: OpenAPI
+    url: openapi/scratchpay-borrower-application-result-api-openapi.yml
+  - type: Staging
+    url: https://staging.scratchpay.com/api
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +77,46 @@ maintainers:
 common:
 - type: Website
   url: https://scratchpay.com
+- type: Documentation
+  url: https://scratchpay-lending.stonly.com/kb/guide/en/integrate-scratch-pay-plans-with-third-party-services-fnFPz1e3De/Steps/2720498
+- type: APIReference
+  url: https://github.com/scratchpay/Scratchpay-API
+- type: GitHubOrganization
+  url: https://github.com/scratchpay
+- type: Support
+  url: https://scratchpay.com/practice-support
+- type: Blog
+  url: https://scratchpay.com/news
+- type: Login
+  url: https://dashboard.scratchpay.com/
+- type: TermsOfService
+  url: https://scratchpay.com/legal/terms-of-services
+- type: PrivacyPolicy
+  url: https://scratchpay.com/legal/privacy
+- type: Authentication
+  url: authentication/scratchpay-authentication.yml
+- type: ErrorCatalog
+  url: errors/scratchpay-problem-types.yml
+- type: Conventions
+  url: conventions/scratchpay-conventions.yml
+- type: Webhooks
+  url: asyncapi/scratchpay-partner-webhooks.yml
+- type: DataModel
+  url: data-model/scratchpay-data-model.yml
+- type: Conformance
+  url: conformance/scratchpay-conformance.yml
+- type: Sandbox
+  url: sandbox/scratchpay-sandbox.yml
+- type: MCPServer
+  url: mcp/scratchpay-mcp.yml
+- type: LLMsTxt
+  url: llms/scratchpay-llms.txt
+- type: AgenticAccess
+  url: agentic-access/scratchpay-agentic-access.yml
+- type: DomainSecurity
+  url: security/scratchpay-domain-security.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1

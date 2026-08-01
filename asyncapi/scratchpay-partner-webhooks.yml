@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/scratchpay-partner-1.0.0-apis-swagger.yml
+spec_type: Webhooks
+summary: >
+  Scratchpay delivers the borrower loan-application decision asynchronously by
+  calling the partner's own HTTP endpoint back (a partner-hosted webhook / callback).
+  The partner registers/implements this endpoint; Scratchpay POSTs the result to it,
+  correlated by the loanUniqueId the partner supplied on the original application.
+webhooks:
+  - name: loan-application-result
+    direction: scratchpay-to-partner
+    method: POST
+    path_template: /application/{loanUniqueId}/result
+    auth:
+      header: Authorization
+      format: 'Bearer <token>'
+    correlation:
+      field: loanUniqueId
+      note: The alphanumeric id the partner passed on POST /application.
+    payload:
+      content_type: application/json
+      schema:
+        result:
+          type: integer
+          enum: [0, 1]
+          description: The application result, either 0 or 1 (decline / approve).
+    source_operation: openapi/scratchpay-partner-1.0.0-apis-swagger.yml#POST /application/{loanUniqueId}/result

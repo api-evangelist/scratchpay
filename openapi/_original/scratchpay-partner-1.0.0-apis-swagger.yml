@@ -1,0 +1,51 @@
+openapi: 3.0.0
+info:
+  description: |
+    API Documentation for `Partner-API`
+  version: 1.0.0
+  title: Partner-API
+  contact:
+    email: tech@scratchpay.com
+
+
+schemes:
+ - https
+
+paths:
+  /application/{loanUniqueId}/result:
+    post:
+      tags: 
+      - Borrower application result
+      summary: Send the loan application result to the partner
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+            example: "Bearer 20c864a867e1563d298e316af9a50ee3"
+          required: true
+        - in: path
+          name: loanUniqueId
+          schema:
+            type: string
+            example: 46bf3c423264c47dd0bb7f2626641181
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                result:
+                  type: integer
+                  example: 0
+                  description: The application result either 0 or 1
+                  required: true
+                
+      responses:
+        200:
+          description: success
+                                                         
+externalDocs:
+  description: Find out more about Scratchpay
+  url: https://scratchpay.com

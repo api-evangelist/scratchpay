@@ -1,0 +1,22 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Scratchpay-API
+  version: 1.0.0
+extends: openapi/scratchpay-scratchpay-1.0.0-apis-swagger.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: true
+      x-provenance: github.com/scratchpay/Scratchpay-API (archived 2026-06-26)
+  - target: $.components.securitySchemes
+    update:
+      partnerBearerToken:
+        type: http
+        scheme: bearer
+        description: >
+          Integration token issued from the Scratch Dashboard, sent as
+          Authorization: Bearer <token>. Captured as a formal securityScheme
+          (the source spec declares it only as an inline header parameter).
+  - target: $.paths['/application'].post
+    update:
+      operationId: createBorrowerApplication

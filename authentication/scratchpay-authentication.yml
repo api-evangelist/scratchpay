@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/scratchpay-scratchpay-1.0.0-apis-swagger.yml
+docs: https://scratchpay-lending.stonly.com/kb/guide/en/integrate-scratch-pay-plans-with-third-party-services-fnFPz1e3De/Steps/2720498
+summary:
+  types: [http]
+  scheme: bearer
+  note: >
+    The published Scratchpay partner/borrower API authenticates with a static
+    bearer token passed in the Authorization header (Authorization: Bearer <token>).
+    The specs declare this as an inline required header parameter rather than a formal
+    OpenAPI securityScheme, so the mechanical securityScheme deriver finds none; this
+    profile is captured from the spec parameters + the partner integration docs.
+schemes:
+  - name: partnerBearerToken
+    type: http
+    scheme: bearer
+    location: header
+    header_name: Authorization
+    format: 'Bearer <integration-token>'
+    token_provisioning: >
+      The integration token is issued to the practice/partner from the Scratch
+      Dashboard (Account tab -> Integration Token, https://my.scratchpay.com/#/clinic/token).
+    sources:
+      - openapi/scratchpay-scratchpay-1.0.0-apis-swagger.yml
+      - openapi/scratchpay-scratchpay-care-credit-1.0.0-apis-swagger.yml
+      - openapi/scratchpay-partner-1.0.0-apis-swagger.yml

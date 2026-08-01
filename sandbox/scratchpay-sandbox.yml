@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/scratchpay-scratchpay-1.0.0-apis-swagger.yml
+summary: >
+  Scratchpay publishes a distinct staging environment alongside production in the
+  OpenAPI servers block. Partners obtain an integration token from the Scratch
+  Dashboard to authenticate. No public magic/test card or synthetic-borrower values
+  are published, so none are recorded here (the values in the specs are documentation
+  examples, not sanctioned test fixtures).
+environments:
+  - mode: staging
+    base_url: https://staging.scratchpay.com/api
+  - mode: production
+    base_url: https://scratchpay.com/api
+credentials:
+  type: bearer-token
+  provisioning: 'Scratch Dashboard -> Account -> Integration Token (https://my.scratchpay.com/#/clinic/token)'
+test_values:
+  published: false
+  note: No sanctioned test card/account/borrower fixtures are published by Scratchpay.

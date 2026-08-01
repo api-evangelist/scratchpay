@@ -1,0 +1,35 @@
+# Scratchpay
+
+> Scratchpay (Scratch Financial, Inc., NMLS ID 1582666) is a digital payment and financing platform for veterinary and human healthcare. Practices offer borrowers Scratch Pay installment plans ($200–$10,000, 12–24 months) and Scratch Checkout payment processing; the partner/borrower API lets integrators submit loan applications and receive an asynchronous approve/decline decision via callback.
+
+## APIs
+- [Scratchpay-API (borrower application)](https://github.com/scratchpay/Scratchpay-API): POST /application — submit a borrower loan application, returns a phone-verification redirect URL.
+- [Scratchpay Care Credit API](https://github.com/scratchpay/Scratchpay-API): POST /application — application flow keyed by practice URL.
+- [Partner-API (result callback)](https://github.com/scratchpay/Scratchpay-API): POST /application/{loanUniqueId}/result — Scratchpay delivers the decision to the partner.
+
+## Specs
+- openapi/scratchpay-scratchpay-1.0.0-apis-swagger.yml
+- openapi/scratchpay-scratchpay-care-credit-1.0.0-apis-swagger.yml
+- openapi/scratchpay-partner-1.0.0-apis-swagger.yml
+
+## Artifacts
+- authentication/scratchpay-authentication.yml — bearer integration token
+- errors/scratchpay-problem-types.yml — HTTP 422 validation envelope
+- conventions/scratchpay-conventions.yml — cross-cutting semantics
+- asyncapi/scratchpay-partner-webhooks.yml — loan-result callback
+- data-model/scratchpay-data-model.yml — entity graph
+- mcp/scratchpay-mcp.yml — candidate MCP tools
+
+## Docs
+- [Third-party integration guide](https://scratchpay-lending.stonly.com/kb/guide/en/integrate-scratch-pay-plans-with-third-party-services-fnFPz1e3De/Steps/2720498)
+- [Practice help center](https://scratchplan.stonly.com/kb/en/)
+- [Integration token](https://my.scratchpay.com/#/clinic/token)
+- [Practice dashboard](https://dashboard.scratchpay.com/)
+- [Borrower account](https://account.scratchpay.com)
+
+## Base URLs
+- Production: https://scratchpay.com/api
+- Staging: https://staging.scratchpay.com/api
+
+## Auth
+- Authorization: Bearer <integration-token> (issued from the Scratch Dashboard)

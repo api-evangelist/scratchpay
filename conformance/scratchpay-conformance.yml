@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/scratchpay-scratchpay-1.0.0-apis-swagger.yml, openapi/scratchpay-partner-1.0.0-apis-swagger.yml, openapi/scratchpay-scratchpay-care-credit-1.0.0-apis-swagger.yml
+standards:
+  - id: openapi-3.0
+    conforms: true
+    evidence: specs declare openapi 3.0.0
+  - id: http-bearer-auth
+    conforms: true
+    evidence: Authorization Bearer token required on every operation
+  - id: oauth2
+    conforms: false
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: validation errors returned as custom field-keyed message arrays, not application/problem+json
+  - id: json-api
+    conforms: false
+  - id: webhooks
+    conforms: true
+    evidence: partner callback POST /application/{loanUniqueId}/result delivers async results
+  - id: pagination
+    conforms: false
+    evidence: no collection endpoints

@@ -1,0 +1,47 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/scratchpay-scratchpay-1.0.0-apis-swagger.yml, openapi/scratchpay-partner-1.0.0-apis-swagger.yml
+entities:
+  - name: LoanApplication
+    description: A borrower's request for a Scratch Pay financing plan at a practice.
+    identifier: loanUniqueId
+    fields:
+      - phoneNumber
+      - requestedAmount
+      - practiceUniqueId
+      - practiceURL
+      - successURL
+      - declineURL
+      - firstName
+      - lastName
+      - address1
+      - address2
+      - postalCode
+      - city
+      - state
+      - country
+      - email
+      - birthDate
+      - yearlyIncomeAmount
+  - name: Practice
+    description: The veterinary/medical practice a borrower applies through.
+    identifier: practiceUniqueId
+  - name: Borrower
+    description: The consumer applying for financing (embedded on the application).
+  - name: ApplicationResult
+    description: The asynchronous approve/decline decision delivered to the partner.
+    fields:
+      - result
+relationships:
+  - from: LoanApplication
+    to: Practice
+    kind: belongs_to
+    via: practiceUniqueId
+  - from: LoanApplication
+    to: Borrower
+    kind: has_one
+    via: phoneNumber
+  - from: ApplicationResult
+    to: LoanApplication
+    kind: belongs_to
+    via: loanUniqueId
