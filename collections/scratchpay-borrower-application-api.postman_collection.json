@@ -1,0 +1,178 @@
+{
+  "item": [
+    {
+      "id": "ab20c175-68e9-4310-9455-2fd12f593ef5",
+      "name": "Borrower application",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0c9162cf-3510-4eb1-97fa-b6fb8263fad2",
+          "name": "Send borrower loan application data",
+          "request": {
+            "name": "Send borrower loan application data",
+            "description": {
+              "content": "Will require some data for the borrower loan application and will send back a specific url that the borrower should be redirected to for mobile phone verification page",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "application"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phoneNumber\": \"<string>\",\n  \"practiceUniqueId\": \"<string>\",\n  \"requestedAmount\": \"<integer>\",\n  \"loanUniqueId\": \"<string>\",\n  \"successURL\": \"<string>\",\n  \"declineURL\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"address2\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"city\": \"<string>\",\n  \"state\": \"<string>\",\n  \"email\": \"<string>\",\n  \"birthDate\": \"<string>\",\n  \"yearlyIncomeAmount\": \"<integer>\",\n  \"country\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f3aaa936-3487-4196-8840-c90c84afd9c4",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Authorization",
+                    "value": "Bearer 20c864a867e1563d298e316af9a50ee3"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phoneNumber\": 18557272395,\n  \"practiceUniqueId\": \"cb8306268cbe4d289dbf1e5a2ec0c484\",\n  \"requestedAmount\": 500,\n  \"loanUniqueId\": \"46bf3c423264c47dd0bb7f2626641181\",\n  \"successURL\": \"https://www.google.com\",\n  \"declineURL\": \"https://www.google.com\",\n  \"firstName\": \"Jonathan\",\n  \"lastName\": \"Consumer\",\n  \"address1\": \"Canal Street\",\n  \"address2\": \"Youngtown\",\n  \"postalCode\": 10598,\n  \"city\": \"New York\",\n  \"state\": \"NY\",\n  \"email\": \"jc@example.com\",\n  \"birthDate\": \"1973-12-23\",\n  \"yearlyIncomeAmount\": 70000,\n  \"country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"https://scratchpay.com/verify/18557272395/40\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d136633-2470-4628-919c-5bd34bf9b8c0",
+              "name": "Unable to process the request. One or more fields are invalid or missing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "application"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Authorization",
+                    "value": "Bearer 20c864a867e1563d298e316af9a50ee3"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phoneNumber\": 18557272395,\n  \"practiceUniqueId\": \"cb8306268cbe4d289dbf1e5a2ec0c484\",\n  \"requestedAmount\": 500,\n  \"loanUniqueId\": \"46bf3c423264c47dd0bb7f2626641181\",\n  \"successURL\": \"https://www.google.com\",\n  \"declineURL\": \"https://www.google.com\",\n  \"firstName\": \"Jonathan\",\n  \"lastName\": \"Consumer\",\n  \"address1\": \"Canal Street\",\n  \"address2\": \"Youngtown\",\n  \"postalCode\": 10598,\n  \"city\": \"New York\",\n  \"state\": \"NY\",\n  \"email\": \"jc@example.com\",\n  \"birthDate\": \"1973-12-23\",\n  \"yearlyIncomeAmount\": 70000,\n  \"country\": \"US\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requestedAmount\": [\n    \"The requested amount may not be greater than 10000.\"\n  ],\n  \"phoneNumber\": [\n    \"The phone number format is invalid.\"\n  ],\n  \"loanUniqueId\": [\n    \"The loan unique id field is required.\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3e59ceb8-8e1c-43ff-85bd-858cf5491fd9",
+    "name": "Partner Borrower application API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API Documentation for `Partner-API`\n\n\nContact Support:\n Email: tech@scratchpay.com",
+      "type": "text/plain"
+    }
+  }
+}

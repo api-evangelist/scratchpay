@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Partner Borrower application Borrower application result API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Borrower application result",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send the loan application result to the partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/application/:loanUniqueId/result",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "loanUniqueId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send the loan application result to the partner"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

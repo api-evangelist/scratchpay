@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Partner Borrower application API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Borrower application",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send borrower loan application data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/application",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Will require some data for the borrower loan application and will send back a specific url that the borrower should be redirected to for mobile phone verification page"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
