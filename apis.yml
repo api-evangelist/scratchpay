@@ -42,6 +42,16 @@ tags:
 - Healthcare
 - Fintech
 - Buy Now Pay Later
+- Point-of-Sale
+tags_raw:
+- Company
+- Financing
+- Payments
+- Lending
+- Veterinary
+- Healthcare
+- Fintech
+- Buy Now Pay Later
 - Point of Sale
 apis:
 - aid: scratchpay:scratchpay-borrower-application-api
