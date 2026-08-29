@@ -1,16 +1,29 @@
 {
   "provider": "scratchpay",
   "sources": [
-    "scratchpay-borrower-application-api-openapi.yml",
-    "scratchpay-borrower-application-result-api-openapi.yml"
+    "_original/scratchpay-partner-1.0.0-apis-swagger.yml",
+    "_original/scratchpay-scratchpay-1.0.0-apis-swagger.yml",
+    "_original/scratchpay-scratchpay-care-credit-1.0.0-apis-swagger.yml"
   ],
   "outputs": [
-    "scratchpay-borrower-application-api-openapi.yml",
-    "scratchpay-borrower-application-result-api-openapi.yml"
+    "scratchpay-borrower-application-result-api-openapi.yml",
+    "scratchpay-borrower-application-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "scratchpay-partner-1.0.0-apis-swagger.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "scratchpay-partner-1.0.0-apis-swagger.yml: declared missing tag: Borrower application result",
+    "scratchpay-scratchpay-1.0.0-apis-swagger.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "scratchpay-scratchpay-1.0.0-apis-swagger.yml: declared missing tag: Borrower application",
+    "scratchpay-scratchpay-care-credit-1.0.0-apis-swagger.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "scratchpay-scratchpay-care-credit-1.0.0-apis-swagger.yml: declared missing tag: Borrower application",
+    "tag 'Borrower application' spans 2 source specs (scratchpay-scratchpay-1.0.0-apis-swagger.yml, scratchpay-scratchpay-care-credit-1.0.0-apis-swagger.yml): per-path servers applied"
+  ],
+  "skipped": [
+    "scratchpay-borrower-application-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "scratchpay-borrower-application-result-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
