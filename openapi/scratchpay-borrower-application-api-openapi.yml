@@ -1,10 +1,10 @@
 openapi: 3.2.0
 info:
-  title: Scratchpay Borrower application API
+  description: API Documentation for `Scratchpay-API`
   version: 1.0.0
+  title: Scratchpay Borrower application API
   contact:
     email: tech@scratchpay.com
-  description: 'Operations tagged Borrower application across 2 of this provider''s published API definitions: scratchpay-scratchpay-1.0.0-apis-swagger.yml, scratchpay-scratchpay-care-credit-1.0.0-apis-swagger.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://staging.scratchpay.com/api
   description: staging
@@ -128,14 +128,8 @@ paths:
                   - The phone number format is invalid.
                   loanUniqueId:
                   - The loan unique id field is required.
-    servers:
-    - url: https://staging.scratchpay.com/api
-      description: staging
-    - url: https://scratchpay.com/api
-      description: production
+      operationId: postApplication
+      x-operation-id-source: derived
 externalDocs:
   description: Find out more about Scratchpay
   url: https://scratchpay.com
-x-refined-from:
-- scratchpay-scratchpay-1.0.0-apis-swagger.yml
-- scratchpay-scratchpay-care-credit-1.0.0-apis-swagger.yml

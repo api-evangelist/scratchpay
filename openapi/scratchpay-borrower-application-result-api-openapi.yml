@@ -1,8 +1,6 @@
 openapi: 3.2.0
 info:
-  description: 'API Documentation for `Partner-API`
-
-    '
+  description: API Documentation for `Partner-API`
   version: 1.0.0
   title: Partner Borrower application result API
   contact:
@@ -44,6 +42,8 @@ paths:
       responses:
         200:
           description: success
+      operationId: postApplicationByLoanUniqueIdResult
+      x-operation-id-source: derived
 externalDocs:
   description: Find out more about Scratchpay
   url: https://scratchpay.com
